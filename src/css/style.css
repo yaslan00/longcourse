@@ -165,7 +165,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 /* Article */
 .article, .is-lane main { border-top: 6px solid var(--accent); }
 .article-head { padding: 2.5rem 0 1rem; }
-.article-body > p:first-of-type::first-letter { font-family: var(--display); font-size: 3.6em; line-height: .82; float: left; padding: .08em .12em 0 0; color: var(--accent); font-weight: 500; }
+.article .article-body > p:first-of-type::first-letter { font-family: var(--display); font-size: 3.6em; line-height: .82; float: left; padding: .08em .12em 0 0; color: var(--accent); font-weight: 500; }
 .byline { font-family: var(--ui); font-size: .9rem; color: var(--ink-2); border-top: 1px solid var(--ink); border-bottom: 1px solid var(--rule); padding: .7rem 0; }
 .byline p { margin: 0; }
 .byline-author a { text-decoration: none; font-weight: 600; color: var(--ink); }
