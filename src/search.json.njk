@@ -1,0 +1,5 @@
+---
+permalink: /search.json
+eleventyExcludeFromCollections: true
+---
+[{% for p in collections.articles %}{{ { "url": p.url, "title": p.data.title, "dek": p.data.dek, "lane": p.data.lane, "laneName": (p.data.lane | laneName), "tags": p.data.tags or [], "date": (p.date | isoDate), "readingTime": p.data.readingTime } | jsonify | safe }}{% if not loop.last %},{% endif %}{% endfor %}]

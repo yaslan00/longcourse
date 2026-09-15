@@ -1,0 +1,28 @@
+---
+layout: base.njk
+title: Archive
+description: Every Long Course article, searchable by title, topic, and lane.
+permalink: /archive/
+---
+<section class="wrap lane-head">
+  <p class="kicker">Archive</p>
+  <h1 class="page-title">Everything we have published</h1>
+  <form class="search" role="search" data-search action="/archive/" method="get">
+    <label for="q" class="search-label">Search titles, summaries, and topics</label>
+    <div class="search-row">
+      <input id="q" name="q" type="search" placeholder="protein, fiber, headlines..." autocomplete="off">
+      <select name="lane" aria-label="Lane">
+        <option value="">All lanes</option>
+        {% for key, lane in lanes %}<option value="{{ key }}">{{ lane.name }}</option>{% endfor %}
+      </select>
+    </div>
+  </form>
+  <p class="search-status" data-search-status aria-live="polite"></p>
+</section>
+<section class="wrap">
+  <ol class="list" data-search-list>
+    {% for item in collections.articles %}{% include "list-item.njk" %}{% endfor %}
+  </ol>
+  <p class="empty-p" data-search-empty hidden>No matches. Try a broader word, or <a href="/contact/">ask us to cover it</a>.</p>
+  {% if not collections.articles.length %}<p class="empty-p">The archive is empty for now. First articles arrive soon.</p>{% endif %}
+</section>

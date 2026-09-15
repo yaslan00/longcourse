@@ -1,0 +1,20 @@
+{
+  "name": "Long Course",
+  "tagline": "Nutrition for the long haul, explained clearly.",
+  "description": "Long Course is an independent nutrition publication by Yiğit Aslan: evidence based writing on fueling, everyday eating, reading research, and a calmer relationship with food.",
+  "url": "https://longcourse.netlify.app",
+  "author": {
+    "name": "Yiğit Aslan",
+    "shortBio": "Master's candidate and dietetic intern at Viterbo University, BS in Nutritional Sciences and Dietetics from UW Madison, Olympic swimmer and former NCAA Division I athlete. Not a registered dietitian or licensed clinician."
+  },
+  "email": "maslanay68+longcourse@gmail.com",
+  "newsletter": {
+    "provider": "buttondown",
+    "username": "longcourse",
+    "archiveUrl": "https://buttondown.com/longcourse/archive"
+  },
+  "analytics": {
+    "goatcounter": "longcourse"
+  },
+  "founded": "2026"
+}

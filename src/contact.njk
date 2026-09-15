@@ -1,0 +1,48 @@
+---
+layout: base.njk
+title: Contact
+description: Story ideas, corrections, and general questions for Long Course.
+permalink: /contact/
+---
+<article class="page wrap-narrow">
+  <header class="page-head">
+    <p class="kicker">Contact</p>
+    <h1 class="page-title">Write to Long Course</h1>
+    <p class="dek">Story ideas, corrections, collaboration, or a question about something we published.</p>
+  </header>
+  <div class="article-body">
+    <div class="notice">
+      <p><strong>Please do not send personal medical details.</strong> This site is educational and cannot give individual advice. If you are dealing with a health concern, symptoms, medication questions, or an eating disorder, talk with your own clinician or a registered dietitian. Messages that describe personal medical situations are not answered with advice.</p>
+    </div>
+    <form class="contact-form" name="contact" method="POST" action="/thanks/" data-netlify="true" netlify-honeypot="company">
+      <input type="hidden" name="form-name" value="contact">
+      <p class="visually-hidden"><label>Leave this empty: <input name="company" tabindex="-1" autocomplete="off"></label></p>
+      <div class="field">
+        <label for="c-name">Your name</label>
+        <input id="c-name" name="name" type="text" required autocomplete="name">
+      </div>
+      <div class="field">
+        <label for="c-email">Email, so we can reply</label>
+        <input id="c-email" name="email" type="email" required autocomplete="email">
+      </div>
+      <div class="field">
+        <label for="c-topic">What is this about?</label>
+        <select id="c-topic" name="topic" required>
+          <option value="question">A question about an article</option>
+          <option value="idea">A story idea or reader question</option>
+          <option value="correction">A correction</option>
+          <option value="collaboration">Collaboration, interview, or partnership</option>
+          <option value="newsletter">Newsletter help</option>
+          <option value="other">Something else</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="c-message">Message</label>
+        <textarea id="c-message" name="message" rows="7" required></textarea>
+      </div>
+      <p class="signup-fine">You will get an automatic confirmation from the publication's assistant. Routine questions get a reply that points to relevant articles. Anything that needs Yiğit personally is passed to him. <a href="/privacy/">Privacy</a>.</p>
+      <button type="submit">Send</button>
+    </form>
+    <p>Prefer email? Write to <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
+  </div>
+</article>

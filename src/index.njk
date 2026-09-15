@@ -1,0 +1,75 @@
+---
+layout: base.njk
+bodyClass: is-home
+permalink: /
+---
+{% set lead = collections.articles[0] %}
+{% set rest = collections.articles.slice(1, 5) %}
+<section class="wrap home-intro">
+  <p class="home-statement"><em>Long Course</em> is an independent nutrition publication. It takes the long view: what the evidence actually shows, what it doesn't, and what that could look like on a normal Tuesday.</p>
+</section>
+
+{% if lead %}
+<section class="wrap lead" aria-labelledby="lead-h">
+  <h2 id="lead-h" class="visually-hidden">Lead story</h2>
+  <div class="lead-grid">
+    <div class="lead-main">
+      <p class="kicker"><a href="/{{ lead.data.lane }}/">{{ lead.data.lane | laneName }}</a></p>
+      <h3 class="lead-title"><a href="{{ lead.url }}">{{ lead.data.title }}</a></h3>
+      <p class="lead-dek">{{ lead.data.dek }}</p>
+      <p class="list-meta">{{ lead.date | readableDate }} · {{ lead.data.readingTime }} min read · {{ lead.data.sources }} sources</p>
+    </div>
+    <div class="lead-side">
+      <p class="side-label">Recent</p>
+      <ol class="side-list">
+        {% for item in rest %}
+        <li><a href="{{ item.url }}"><span class="kicker-small">{{ item.data.lane | laneName }}</span><span class="side-title">{{ item.data.title }}</span></a></li>
+        {% endfor %}
+      </ol>
+      <p class="side-more"><a href="/archive/">Everything, searchable</a></p>
+    </div>
+  </div>
+</section>
+{% else %}
+<section class="wrap empty">
+  <p class="empty-p">The first articles are being edited. Subscribe below and you will get the first one when it lands.</p>
+</section>
+{% endif %}
+
+<section class="wrap paths" aria-labelledby="paths-h">
+  <h2 id="paths-h" class="section-h">Reading paths</h2>
+  <p class="section-p">Four lanes. Pick the one that matches the question you actually have.</p>
+  <div class="paths-grid">
+    {% for key, lane in lanes %}
+    <div class="path lane-{{ key }}">
+      <h3 class="path-h"><a href="/{{ key }}/">{{ lane.name }}</a></h3>
+      <p class="path-p">{{ lane.blurb }}</p>
+      <ul class="path-list">
+        {% for item in collections.articles | byLane(key) | head(3) %}
+        <li><a href="{{ item.url }}">{{ item.data.title }}</a></li>
+        {% else %}
+        <li class="path-empty">First piece coming soon.</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="wrap how" aria-labelledby="how-h">
+  <div class="how-grid">
+    <div>
+      <h2 id="how-h" class="section-h">How this publication works</h2>
+      <p>Every article starts with a real reader question, cites the studies it leans on, and says out loud where the evidence is thin. Human trials come first. Animal and lab findings are labelled as such. Practical examples are examples, not prescriptions.</p>
+      <p>Articles are re-checked against newer evidence on a schedule, and the review date sits at the bottom of every piece. Read the <a href="/standards/">editorial standards</a>, including how AI assistance is used and disclosed.</p>
+    </div>
+    <div class="how-author">
+      <p class="side-label">The author</p>
+      <p>{{ site.author.name }} is a master's candidate and dietetic intern at Viterbo University with a BS in Nutritional Sciences and Dietetics from UW Madison. He competed in swimming at the Olympic level and raced for UW Madison in NCAA Division I. He is not a registered dietitian yet, and this site is not medical advice. <a href="/about/">More about him</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap-narrow">
+  {% include "signup.njk" %}
+</section>

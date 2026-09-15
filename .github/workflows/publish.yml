@@ -1,0 +1,24 @@
+name: Scheduled publish and newsletter
+on:
+  schedule:
+    - cron: "0 12 * * 2"   # Tuesdays 12:00 UTC (7:00 AM Central during daylight time, 6:00 AM in winter)
+  workflow_dispatch:
+concurrency: publish
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm ci
+      - run: node scripts/check.js
+      - name: Pick and publish one due article
+        run: node scripts/publish.js
+      - name: Send newsletter once the article is live
+        env:
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
+        run: node scripts/newsletter.js

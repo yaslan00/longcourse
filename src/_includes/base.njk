@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% set pageTitle = (title + " | " + site.name) if title else (site.name + ": " + site.tagline) %}
+  {% set pageDesc = dek or description or site.description %}
+  <title>{{ pageTitle }}</title>
+  <meta name="description" content="{{ pageDesc }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  {% if noindex %}<meta name="robots" content="noindex,nofollow">{% endif %}
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:type" content="{{ 'article' if layout == 'article.njk' else 'website' }}">
+  <meta property="og:title" content="{{ title or site.name }}">
+  <meta property="og:description" content="{{ pageDesc }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:image" content="{{ site.url }}/og/{{ page.fileSlug or 'home' }}.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {{ {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": site.name,
+    "url": site.url,
+    "description": site.description,
+    "publisher": { "@type": "Person", "name": site.author.name }
+  } | jsonify | safe }}
+  </script>
+  {% block head %}{% endblock %}
+</head>
+<body class="{{ bodyClass }}">
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="wrap masthead-row">
+    <a class="brand" href="/" aria-label="{{ site.name }} home">
+      <svg class="brand-mark" width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="2" y="2" width="24" height="24" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 18c3-6 6-6 8 0s5 6 8 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <span class="brand-name">{{ site.name }}</span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav" data-nav-toggle>Menu</button>
+    <nav id="nav" class="nav" aria-label="Primary">
+      <a href="/fuel/">Fuel</a>
+      <a href="/everyday/">Everyday</a>
+      <a href="/headlines/">Headlines</a>
+      <a href="/flexibility/">Flexibility</a>
+      <a href="/archive/">Archive</a>
+      <a href="/about/">About</a>
+      <a class="nav-cta" href="/newsletter/">Newsletter</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="{{ mainClass }}">
+{{ content | safe }}
+</main>
+<footer class="colophon">
+  <div class="wrap colophon-grid">
+    <div>
+      <p class="colophon-name">{{ site.name }}</p>
+      <p class="colophon-tag">{{ site.tagline }}</p>
+      <p class="colophon-small">Written by {{ site.author.name }}. Educational content only, not medical advice. Founded {{ site.founded }} in Madison, Wisconsin.</p>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/about/">About</a>
+      <a href="/portfolio/">Portfolio</a>
+      <a href="/standards/">Editorial standards</a>
+      <a href="/corrections/">Corrections</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+    <div>
+      <p class="colophon-small">Every article lists its sources. Articles are reviewed for accuracy at least once after publication; the review date appears on the page.</p>
+      <p class="colophon-small">Built with Eleventy. Text and original graphics licensed CC BY-NC 4.0 unless noted.</p>
+    </div>
+  </div>
+</footer>
+<script src="/js/site.js" defer></script>
+{% if site.analytics.goatcounter %}
+<script data-goatcounter="https://{{ site.analytics.goatcounter }}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+{% endif %}
+</body>
+</html>

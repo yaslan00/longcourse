@@ -1,0 +1,71 @@
+---
+layout: base.njk
+bodyClass: is-article
+---
+{% set isHumanGate = reviewGate == "human" %}
+<article class="article lane-{{ lane }}">
+  <header class="article-head wrap-narrow">
+    <p class="kicker"><a href="/{{ lane }}/">{{ lane | laneName }}</a>{% if status != "published" and status != "scheduled" %} <span class="draft-flag">Draft, {{ "awaiting human review" if isHumanGate else "awaiting editorial check" }}</span>{% endif %}</p>
+    <h1 class="article-title">{{ title }}</h1>
+    <p class="dek">{{ dek }}</p>
+    <div class="byline">
+      <p><span class="byline-author">{% if authorReviewed === false %}By the Long Course desk{% else %}By <a href="/about/">{{ author or site.author.name }}</a>{% endif %}</span>
+        <span class="byline-sep" aria-hidden="true">·</span>
+        <time datetime="{{ date | isoDate }}">{{ date | readableDate }}</time>
+        {% if updated and (updated | isoDate) != (date | isoDate) %}<span class="byline-sep" aria-hidden="true">·</span> Updated <time datetime="{{ updated | isoDate }}">{{ updated | readableDate }}</time>{% endif %}
+        <span class="byline-sep" aria-hidden="true">·</span> {{ readingTime or ((content | wordcount) / 230) | round }} min read
+      </p>
+      <p class="byline-note">
+        {% if authorReviewed === false %}Researched and drafted with AI assistance under the publication's editorial process. Yiğit Aslan has not yet personally reviewed this piece; his byline is added once he has.{% elif aiAssist %}Researched and drafted with AI assistance, edited and approved by {{ author or site.author.name }}.{% endif %}
+        {% if reviewer %}Reviewed by {{ reviewer }}.{% else %}Not yet independently reviewed.{% endif %}
+        <a href="/standards/#ai">How we work</a>.
+      </p>
+    </div>
+  </header>
+
+  <div class="article-body wrap-narrow">
+    {{ content | safe }}
+  </div>
+
+  <footer class="article-foot wrap-narrow">
+    <div class="review-box">
+      <p><strong>Accuracy review.</strong> Every Long Course article gets a scheduled re-read against newer evidence. This one is due for review by {{ nextReview | readableDate if nextReview else "a date to be set" }}. If you think something here is wrong or out of date, <a href="/corrections/">tell us</a>.</p>
+    </div>
+    {% if tags %}<p class="tags">{% for t in tags %}<a class="tag" href="/archive/?q={{ t | urlencode }}">{{ t }}</a>{% endfor %}</p>{% endif %}
+  </footer>
+
+  {% set rel = collections.articles | related(page.url, lane, tags, 3) %}
+  {% if rel.length %}
+  <aside class="related wrap" aria-labelledby="related-h">
+    <h2 id="related-h" class="section-h">Keep reading</h2>
+    <div class="related-grid">
+      {% for r in rel %}
+      <a class="related-item" href="{{ r.url }}">
+        <span class="kicker-small">{{ r.data.lane | laneName }}</span>
+        <span class="related-title">{{ r.data.title }}</span>
+        <span class="related-dek">{{ r.data.dek }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </aside>
+  {% endif %}
+
+  <aside class="signup-strip wrap-narrow">
+    {% include "signup.njk" %}
+  </aside>
+</article>
+<script type="application/ld+json">
+{{ {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": dek,
+  "datePublished": (date | isoDate),
+  "dateModified": (updated | isoDate) if updated else (date | isoDate),
+  "author": { "@type": "Person", "name": author or site.author.name, "url": site.url + "/about/" },
+  "publisher": { "@type": "Organization", "name": site.name, "url": site.url },
+  "mainEntityOfPage": site.url + page.url,
+  "articleSection": (lane | laneName),
+  "keywords": (tags or []) | join(", ")
+} | jsonify | safe }}
+</script>

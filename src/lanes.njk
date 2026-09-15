@@ -1,0 +1,31 @@
+---
+layout: base.njk
+pagination:
+  data: lanes
+  size: 1
+  alias: laneKey
+permalink: "/{{ laneKey }}/"
+eleventyComputed:
+  title: "{{ lanes[laneKey].name }}"
+  description: "{{ lanes[laneKey].blurb }}"
+  bodyClass: "is-lane lane-{{ laneKey }}"
+---
+{% set lane = lanes[laneKey] %}
+{% set items = collections.articles | byLane(laneKey) %}
+<section class="wrap lane-head">
+  <p class="kicker">Reading path</p>
+  <h1 class="page-title">{{ lane.name }}</h1>
+  <p class="dek">{{ lane.blurb }}</p>
+  {% if laneKey == "flexibility" %}
+  <p class="lane-note">This lane is about eating without rules. It never carries weight loss or calorie content, and related reading stays inside that boundary.</p>
+  {% endif %}
+</section>
+<section class="wrap">
+  {% if items.length %}
+  <ol class="list">
+    {% for item in items %}{% include "list-item.njk" %}{% endfor %}
+  </ol>
+  {% else %}
+  <p class="empty-p">Nothing published in this lane yet. The first piece is in editing. <a href="/newsletter/">Get it by email</a> when it lands.</p>
+  {% endif %}
+</section>

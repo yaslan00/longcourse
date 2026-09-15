@@ -1,0 +1,14 @@
+{
+  "paused": {
+    "publishing": false,
+    "newsletter": false,
+    "autoreply": false,
+    "outreach": true,
+    "humanGate": false
+  },
+  "published": [],
+  "newsletterSent": [],
+  "pendingNewsletter": null,
+  "lastPublishedOn": null,
+  "log": []
+}

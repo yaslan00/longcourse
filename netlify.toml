@@ -1,0 +1,26 @@
+[build]
+  command = "npm run build"
+  publish = "_site"
+
+[context.production.environment]
+  SHOW_DRAFTS = "0"
+
+# The "preview" branch renders drafts too, with noindex, for owner review.
+[context.preview.environment]
+  SHOW_DRAFTS = "1"
+
+[context.deploy-preview.environment]
+  SHOW_DRAFTS = "1"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

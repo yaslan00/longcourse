@@ -1,0 +1,13 @@
+---
+layout: base.njk
+---
+<article class="page wrap-narrow">
+  <header class="page-head">
+    {% if kicker %}<p class="kicker">{{ kicker }}</p>{% endif %}
+    <h1 class="page-title">{{ title }}</h1>
+    {% if dek %}<p class="dek">{{ dek }}</p>{% endif %}
+  </header>
+  <div class="article-body">
+    {{ content | safe }}
+  </div>
+</article>

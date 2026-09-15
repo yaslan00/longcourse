@@ -1,0 +1,22 @@
+---
+layout: base.njk
+title: Unsubscribe
+description: Leave the Long Course letter.
+permalink: /newsletter/unsubscribe/
+noindex: true
+---
+<article class="page wrap-narrow">
+  <header class="page-head">
+    <p class="kicker">Newsletter</p>
+    <h1 class="page-title">Unsubscribe</h1>
+    <p class="dek">The fastest way is the unsubscribe link at the bottom of any letter. If you do not have one handy, use this form.</p>
+  </header>
+  <div class="article-body">
+    <form class="signup-form" action="https://buttondown.com/api/emails/embed-unsubscribe/{{ site.newsletter.username }}" method="post" target="_blank">
+      <label class="visually-hidden" for="unsub-email">Email address</label>
+      <input type="email" name="email" id="unsub-email" placeholder="you@example.com" required autocomplete="email">
+      <button type="submit">Unsubscribe</button>
+    </form>
+    <p class="signup-fine">You will get a short confirmation. If anything goes wrong, <a href="/contact/">tell us</a> and a person will remove you by hand.</p>
+  </div>
+</article>

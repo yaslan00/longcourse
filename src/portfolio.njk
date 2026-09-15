@@ -1,0 +1,30 @@
+---
+layout: base.njk
+title: Portfolio
+description: Selected writing and projects by Yiğit Aslan.
+permalink: /portfolio/
+---
+<article class="page wrap-narrow">
+  <header class="page-head">
+    <p class="kicker">Portfolio</p>
+    <h1 class="page-title">Selected writing and projects</h1>
+    <p class="dek">A working record of explanatory writing on nutrition, kept current as the publication grows.</p>
+  </header>
+  <div class="article-body">
+    <h2>Selected writing</h2>
+    {% if collections.articles.length %}
+    <ol class="list list-compact">
+      {% for item in collections.articles %}{% include "list-item.njk" %}{% endfor %}
+    </ol>
+    {% else %}
+    <p class="empty-p">The first pieces are in editing and will appear here on publication.</p>
+    {% endif %}
+
+    <h2>Projects</h2>
+    <p>Long Course itself: an independent publication with an evidence-first editorial process, scheduled accuracy reviews, and an honest AI assistance policy. Concept, editorial direction, and operations design, 2026.</p>
+    <p>Sports nutrition education for a youth swim team (Turkish language presentation). Details available on request.</p>
+
+    <h2>Working with Yiğit</h2>
+    <p>Available for writing and editorial collaboration on evidence based nutrition education, sports nutrition explainers, and research summaries for general audiences. <a href="/contact/">Get in touch</a>.</p>
+  </div>
+</article>
