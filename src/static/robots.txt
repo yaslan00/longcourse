@@ -3,3 +3,4 @@ Allow: /
 Disallow: /thanks/
 Disallow: /newsletter/unsubscribe/
 Sitemap: https://longcourse.netlify.app/sitemap.xml
+Disallow: /owner/

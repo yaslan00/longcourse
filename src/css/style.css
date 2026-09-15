@@ -212,3 +212,12 @@ button:hover { background: var(--accent); border-color: var(--accent); }
 .colophon nav a { text-decoration: none; }
 .colophon nav a:hover { text-decoration: underline; }
 @media (max-width: 760px) { .colophon-grid { grid-template-columns: 1fr; gap: 1.5rem; } }
+
+/* Owner view */
+.owner-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3rem; padding-bottom: 3rem; }
+.owner-grid .section-h { margin-top: 1.5rem; font-size: 1.3rem; }
+.owner-table { border-collapse: collapse; width: 100%; font-family: var(--ui); font-size: .88rem; margin: 0 0 .6rem; }
+.owner-table th, .owner-table td { text-align: left; padding: .45rem .5rem; border-bottom: 1px solid var(--rule); vertical-align: top; font-weight: 400; }
+.owner-table th { color: var(--ink-2); width: 34%; }
+.owner-log { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .78rem; color: var(--ink-2); padding-left: 1rem; }
+@media (max-width: 900px) { .owner-grid { grid-template-columns: 1fr; } }

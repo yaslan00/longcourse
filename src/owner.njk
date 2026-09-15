@@ -1,0 +1,79 @@
+---
+layout: base.njk
+title: Owner view
+description: Private operating view for the publication owner.
+permalink: /owner/
+noindex: true
+---
+{% set drafts = collections.drafts %}
+<section class="wrap lane-head">
+  <p class="kicker">Owner view</p>
+  <h1 class="page-title">Long Course operations</h1>
+  <p class="dek">Rebuilt on every deploy from <code>ops/state.json</code>, <code>ops/stats.json</code>, and the article files. Not linked from the site; not indexed.</p>
+  <p class="list-meta">Built {{ buildTime }}</p>
+</section>
+<section class="wrap owner-grid">
+  <div>
+    <h2 class="section-h">Automation switches</h2>
+    <table class="owner-table">
+      <tr><th>Publishing (Tuesdays)</th><td>{{ "PAUSED" if ops.state.paused.publishing else "on" }}</td></tr>
+      <tr><th>Newsletter send</th><td>{{ "PAUSED" if ops.state.paused.newsletter else "on" }}</td></tr>
+      <tr><th>Inbox auto-replies</th><td>{{ "PAUSED" if ops.state.paused.autoreply else "on" }}</td></tr>
+      <tr><th>Human-gate articles</th><td>{{ "held" if ops.state.paused.humanGate else "allowed with a named reviewer" }}</td></tr>
+      <tr><th>Outbound outreach</th><td>{{ "off (drafts only)" if ops.state.paused.outreach else "on" }}</td></tr>
+    </table>
+    <p class="list-meta">To pause or resume: <a href="{{ ops.repo }}/edit/main/ops/state.json">edit ops/state.json on GitHub</a> and set the flag to true or false, or email "pause publishing" / "resume publishing" (also newsletter, autoreply) to the publication inbox from your own address. The inbox job applies it within its next run.</p>
+
+    <h2 class="section-h">Published</h2>
+    {% if collections.articles.length %}
+    <ol class="list list-compact">{% for item in collections.articles %}{% include "list-item.njk" %}{% endfor %}</ol>
+    {% else %}<p class="empty-p">Nothing published yet. The first scheduled slot is Tuesday 22 September.</p>{% endif %}
+
+    <h2 class="section-h">Drafts and scheduled</h2>
+    <table class="owner-table">
+      <tr><th>Slot</th><th>Article</th><th>Gate</th><th>Status</th><th>Needs</th></tr>
+      {% for d in drafts %}
+      <tr>
+        <td>{{ d.date | readableDate }}</td>
+        <td><a href="{{ ops.repo }}/blob/main/src/articles/{{ d.fileSlug }}.md">{{ d.data.title }}</a></td>
+        <td>{{ d.data.reviewGate }}</td>
+        <td>{{ d.data.status }}</td>
+        <td>{% if d.data.reviewGate == "human" and not d.data.reviewer %}named reviewer before it can publish{% elif d.data.status == "review" %}your read (optional; publishes on schedule as "Long Course desk" otherwise){% else %}nothing{% endif %}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <p class="list-meta">Approve by email: send "approve slug-name" or "reviewed slug-name" from your address to the publication inbox; the inbox job updates the file. Or edit the frontmatter on GitHub: set <code>authorReviewed: true</code> and, for human-gate pieces, <code>reviewer: "Your Name, credentials"</code>.</p>
+  </div>
+  <div>
+    <h2 class="section-h">Readership (last 7 days)</h2>
+    {% if ops.stats %}
+    <table class="owner-table">
+      <tr><th>Snapshot</th><td>{{ ops.stats.generatedAt }}</td></tr>
+      <tr><th>Pageviews</th><td>{{ ops.stats.site.pageviews7d if ops.stats.site.pageviews7d is defined else "n/a" }}</td></tr>
+      <tr><th>Newsletter subscribers</th><td>{{ ops.stats.newsletter.subscribers if ops.stats.newsletter.subscribers is defined else "n/a" }}</td></tr>
+      <tr><th>Unconfirmed signups</th><td>{{ ops.stats.newsletter.unconfirmed if ops.stats.newsletter.unconfirmed is defined else "n/a" }}</td></tr>
+    </table>
+    {% if ops.stats.site.topPages %}<p class="list-meta">Top pages: {% for p in ops.stats.site.topPages %}{{ p.path }} ({{ p.count }}){% if not loop.last %}, {% endif %}{% endfor %}</p>{% endif %}
+    {% if ops.stats.errors.length %}<p class="list-meta">Stats notes: {{ ops.stats.errors | join("; ") }}</p>{% endif %}
+    {% else %}<p class="empty-p">No stats snapshot yet. The weekly job writes one every Sunday evening.</p>{% endif %}
+    <p class="list-meta">Live dashboards: <a href="https://{{ site.analytics.goatcounter }}.goatcounter.com">GoatCounter</a> · <a href="https://buttondown.com/emails">Buttondown</a> · <a href="https://app.netlify.com">Netlify</a> · <a href="{{ ops.repo }}/actions">GitHub Actions (job logs)</a></p>
+
+    <h2 class="section-h">System health</h2>
+    {% if ops.stats %}
+    <table class="owner-table">{% for path, code in ops.stats.uptime %}<tr><th>{{ path }}</th><td>{{ code }}</td></tr>{% endfor %}</table>
+    {% else %}<p class="list-meta">First health snapshot pending.</p>{% endif %}
+    <p class="list-meta">Failed jobs email you automatically from GitHub Actions. Daily health check runs 11:30 UTC.</p>
+
+    <h2 class="section-h">Monthly spend</h2>
+    <table class="owner-table">
+      <tr><th>Netlify</th><td>$0 (free)</td></tr>
+      <tr><th>Buttondown</th><td>$0 up to 100 subscribers, then paid</td></tr>
+      <tr><th>GoatCounter</th><td>$0 (free for personal use)</td></tr>
+      <tr><th>GitHub</th><td>$0 (public repo, free Actions minutes)</td></tr>
+      <tr><th>Domain</th><td>not purchased yet</td></tr>
+    </table>
+
+    <h2 class="section-h">Recent job log</h2>
+    <ul class="owner-log">{% for l in ops.state.log | head(12) %}<li>{{ l }}</li>{% else %}<li>No entries yet.</li>{% endfor %}</ul>
+  </div>
+</section>
