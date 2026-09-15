@@ -58,7 +58,7 @@ Fuel gets roughly 40 percent of slots (core audience), Everyday 25, Headlines 20
 
 ## Measurement
 
-Track weekly: unique visitors, returning visitors (GoatCounter), pages per visit, newsletter confirmations and unsubscribes (Buttondown), search impressions and clicks (Google Search Console once verified), and inbound messages by type. Review monthly which lanes retain readers and adjust the rotation, not the standards.
+Track weekly: unique visitors, returning visitors (GoatCounter), pages per visit, newsletter confirmations and unsubscribes (Drive folder counts), search impressions and clicks (Google Search Console once verified), and inbound messages by type. Review monthly which lanes retain readers and adjust the rotation, not the standards.
 
 ## Experiments (one at a time, two weeks each)
 

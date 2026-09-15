@@ -111,4 +111,4 @@ Most nutrition headlines describe one study, often observational, often framed i
 7. Perel P, Roberts I, Sena E, et al. 2007. Comparison of treatment effects between animal experiments and clinical trials: systematic review. *BMJ* 334(7586):197. https://doi.org/10.1136/bmj.39048.407928.BE
 8. Lesser LI, Ebbeling CB, Goozner M, Wypij D, Ludwig DS. 2007. Relationship between funding source and conclusion among nutrition-related scientific articles. *PLoS Medicine* 4(1):e5. https://doi.org/10.1371/journal.pmed.0040005
 
-*Educational content, not medical advice. See our [editorial standards](/standards/).*
+*Long Course is written as general education for a wide audience. Decisions about your own health belong with the people who know your history. [How we work](/standards/).*

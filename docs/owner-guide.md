@@ -12,7 +12,7 @@ Aim: about 15 minutes a week. Everything below is optional except the weekly dig
 | Job logs and manual runs | https://github.com/yaslan00/longcourse/actions | GitHub |
 | Hosting, forms, deploys | https://app.netlify.com/projects/longcourse | Netlify (Google sign-in) |
 | Analytics | https://longcourse.goatcounter.com | GoatCounter |
-| Newsletter | https://buttondown.com/emails | Buttondown |
+| Newsletter list | Google Drive folder "Long Course subscribers" | Google |
 | Publication inbox | Gmail label "📰 Long Course" (alias maslanay68+longcourse@gmail.com) | Gmail |
 
 ## The weekly loop (15 minutes, Monday 5:00 PM, on your calendar)
@@ -30,7 +30,7 @@ Same switches by hand: edit https://github.com/yaslan00/longcourse/edit/main/ops
 
 ## How publishing works
 
-Every Tuesday 7:00 AM Central (6:00 AM after the clocks change), a GitHub job picks the one article whose date has arrived and whose gate is satisfied, marks it published, and Netlify rebuilds the site within a minute. Once the page is live the same job sends the newsletter through Buttondown. The job never publishes two in a day and never sends a newsletter twice; that state lives in ops/state.json.
+Every Tuesday 7:00 AM Central (6:00 AM after the clocks change), a GitHub job picks the one article whose date has arrived and whose gate is satisfied, marks it published, and Netlify rebuilds the site within a minute. Once the page is live, a Claude scheduled task (Tuesday 7:30 AM Central) sends the letter from your Gmail to the confirmed list in Drive, in BCC batches, and leaves a "sent-<slug>" marker file in the Drive folder so it never sends twice. The publish job never publishes two articles in a day.
 
 Every Wednesday a Claude scheduled task drafts the next article from the 90 day plan and emails you the link. Drafts land as `status: review` with a Tuesday date two or more weeks out, so you always have at least one week to read or hold them.
 
@@ -51,11 +51,11 @@ Copy an existing file, change the slug, write, set `status: review` and a future
 
 ## Backups
 
-The GitHub repo is the backup: every article, page, image, and setting, with full history. To take a copy: GitHub, Code, Download ZIP. To restore anywhere: `npm install && npm run build` produces the whole site in `_site`. Buttondown exports subscribers as CSV from its Subscribers page.
+The GitHub repo is the backup: every article, page, image, and setting, with full history. To take a copy: GitHub, Code, Download ZIP. To restore anywhere: `npm install && npm run build` produces the whole site in `_site`. The subscriber list is the set of files in the Drive folder "Long Course subscribers" (one file per address; an "unsub-" file cancels it).
 
 ## Costs
 
-$0 per month today. Buttondown starts charging above 100 subscribers (about $9 per month for the next tier). A custom domain runs about $10 to $15 per year if you want one; longcourse.co and similar are worth checking.
+$0 per month today. Gmail sends up to about 500 recipients a day, which covers the first year comfortably; past that, move the list to a newsletter service (the Drive folder exports in minutes). A custom domain runs about $10 to $15 per year if you want one; longcourse.co and similar are worth checking.
 
 ## What Claude does and does not do on its own
 

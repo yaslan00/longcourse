@@ -9,9 +9,8 @@
   },
   "email": "maslanay68+longcourse@gmail.com",
   "newsletter": {
-    "provider": "buttondown",
-    "username": "longcourse",
-    "archiveUrl": "https://buttondown.com/longcourse/archive"
+    "provider": "gmail-drive",
+    "sender": "Long Course <maslanay68@gmail.com>"
   },
   "analytics": {
     "goatcounter": "longcourse"

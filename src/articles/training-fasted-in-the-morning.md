@@ -108,4 +108,4 @@ Training before breakfast is fine for many healthy people doing shorter, easier 
 6. Edinburgh RM, et al. (2020). Lipid metabolism links nutrient-exercise timing to insulin sensitivity in men classified as overweight or obese. *The Journal of Clinical Endocrinology and Metabolism*, 105(3), 660. https://doi.org/10.1210/clinem/dgz104
 7. Gejl KD, et al. (2017). No superior adaptations to carbohydrate periodization in elite endurance athletes. *Medicine and Science in Sports and Exercise*, 49(12), 2486 to 2497. Randomized trial, 26 elite male endurance athletes, 4 weeks. https://doi.org/10.1249/MSS.0000000000001377
 
-*Educational content, not medical advice. See our [editorial standards](/standards/).*
+*Long Course is written as general education for a wide audience. Decisions about your own health belong with the people who know your history. [How we work](/standards/).*

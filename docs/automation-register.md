@@ -7,10 +7,10 @@ Last updated 15 September 2026. Everything here runs without Yigit unless a row 
 | | |
 | --- | --- |
 | Trigger | GitHub Actions cron, Tuesdays 12:00 UTC (7:00 AM Central in summer, 6:00 AM in winter). Manual run from the Actions tab. |
-| Execution | GitHub Actions runner, `scripts/publish.js` then `scripts/newsletter.js` |
-| Permissions | Repo contents write (built in GITHUB_TOKEN); secret `BUTTONDOWN_API_KEY` |
+| Execution | GitHub Actions runner, `scripts/publish.js` (the newsletter send is workflow 1b) |
+| Permissions | Repo contents write (built in GITHUB_TOKEN) |
 | Inputs | Article files with `status: review` or `scheduled`, `date` on or before today, gate rules; `ops/state.json` |
-| Outputs | One article flipped to `published`, commit, Netlify deploy, one Buttondown email to all subscribers, state updated |
+| Outputs | One article flipped to `published`, commit, Netlify deploy, `pendingNewsletter` set in state for workflow 1b |
 | Approval conditions | Standard gate: none needed (publishes as "Long Course desk" until Yigit marks `authorReviewed: true`). Human gate: requires `reviewer:` set in frontmatter. `paused.publishing` or `paused.newsletter` halts the respective step. |
 | Logs | Actions run logs; `ops/state.json` log array; owner view |
 | Retry and dedupe | Concurrency group prevents parallel runs. `state.published` and `state.newsletterSent` prevent repeats. If the deploy is not live in 8 minutes the newsletter is not sent and the run fails; the next run sends it once the URL is live. One article per day, hard limit. |
@@ -18,13 +18,26 @@ Last updated 15 September 2026. Everything here runs without Yigit unless a row 
 | Pause and rollback | Set `paused.publishing: true`. To unpublish, set the article to `status: review` and remove it from `state.published`; Netlify redeploys on push. |
 | Cost | $0 (public repo Actions minutes) |
 
+## 1b. Newsletter send (Claude scheduled task)
+
+| | |
+| --- | --- |
+| Trigger | Claude scheduled task, Tuesdays 12:30 UTC (30 minutes after the publish job) |
+| Execution | Cloud session with the Gmail and Drive connectors; no computer needed |
+| Inputs | `ops/state.json` `pendingNewsletter` (public raw file), the Drive folder "Long Course subscribers" |
+| Outputs | One email per batch of up to 50 BCC recipients from Yigit's Gmail, subject = article title, body = dek, link, unsubscribe link; a Drive marker file `sent-<slug>` |
+| Dedupe | Skips if `sent-<slug>` exists; skips if the article URL is not live |
+| Pause | `paused.newsletter` in state.json |
+| Failure | Emails Yigit "Long Course: job failed (newsletter)" |
+| Cost | Claude usage only; Gmail free |
+
 ## 2. Weekly stats snapshot
 
 | | |
 | --- | --- |
 | Trigger | GitHub Actions cron, Sundays 22:00 UTC |
 | Execution | `scripts/stats.js` |
-| Permissions | Secrets `GOATCOUNTER_API_TOKEN` (read only) and `BUTTONDOWN_API_KEY`; repo write for the snapshot commit |
+| Permissions | Optional secret `GOATCOUNTER_API_TOKEN`; without it the public counter endpoint is used; repo write for the snapshot commit |
 | Outputs | `ops/stats.json` (pageviews, top pages, subscribers, uptime codes), which the owner view renders on the next deploy |
 | Failure | Run fails and emails; the snapshot notes which source failed |
 | Cost | $0 |
@@ -80,8 +93,7 @@ Triggered by every push to `main`. Branch `preview` renders drafts (noindex). Fo
 | Secret | Where | Who can read |
 | --- | --- | --- |
 | GitHub fine-grained token (longcourse repo, contents + workflows) | Google Drive doc `longcourse-github-token` in Yigit's Drive | Yigit and Claude sessions on his account |
-| Buttondown API key | GitHub Actions secret | Actions runner only |
-| GoatCounter API token | GitHub Actions secret | Actions runner only |
+| GoatCounter API token (optional) | GitHub Actions secret | Actions runner only |
 | Gmail, Drive, Calendar | OAuth connectors on Yigit's Claude account | Claude sessions on his account |
 
 Rotate the GitHub token yearly (it expires). Revoking it disables the Claude write jobs and nothing else.

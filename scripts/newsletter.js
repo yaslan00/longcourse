@@ -13,7 +13,7 @@ function save() { fs.writeFileSync(STATE, JSON.stringify(state, null, 2) + "\n")
 if (!p) { console.log("no pending newsletter"); process.exit(0); }
 if (state.paused.newsletter) { log("newsletter paused; leaving pending"); save(); process.exit(0); }
 if (state.newsletterSent.includes(p.slug)) { log(`newsletter for ${p.slug} already sent`); state.pendingNewsletter = null; save(); process.exit(0); }
-if (!key) { log("BUTTONDOWN_API_KEY missing; cannot send"); save(); process.exit(1); }
+if (!key) { console.log("No BUTTONDOWN_API_KEY: the newsletter is sent by the Claude scheduled task (Gmail + Drive list). Leaving pendingNewsletter for it."); process.exit(0); }
 
 // Wait for the deploy: poll the article URL for up to 8 minutes.
 let live = false;

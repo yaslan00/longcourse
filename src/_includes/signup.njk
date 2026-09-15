@@ -1,11 +1,12 @@
 <div class="signup">
   <p class="signup-h">The Long Course letter</p>
   <p class="signup-p">One email when a new article is published, usually every week or two. No daily blasts, no tricks, one click to leave. <a href="/newsletter/">What to expect</a>.</p>
-  <form class="signup-form" action="https://buttondown.com/api/emails/embed-subscribe/{{ site.newsletter.username }}" method="post" target="_blank">
-    <label class="visually-hidden" for="bd-email-{{ page.fileSlug or 'x' }}">Email address</label>
-    <input type="email" name="email" id="bd-email-{{ page.fileSlug or 'x' }}" placeholder="you@example.com" required autocomplete="email">
-    <input type="hidden" name="tag" value="site">
+  <form class="signup-form" name="subscribe" method="POST" action="/newsletter/check-inbox/" data-netlify="true" netlify-honeypot="website">
+    <input type="hidden" name="form-name" value="subscribe">
+    <p class="visually-hidden"><label>Leave this empty: <input name="website" tabindex="-1" autocomplete="off"></label></p>
+    <label class="visually-hidden" for="sub-email-{{ page.fileSlug or 'x' }}">Email address</label>
+    <input type="email" name="email" id="sub-email-{{ page.fileSlug or 'x' }}" placeholder="you@example.com" required autocomplete="email">
     <button type="submit">Subscribe</button>
   </form>
-  <p class="signup-fine">You will get a confirmation email first (double opt-in). <a href="/privacy/">Privacy</a>.</p>
+  <p class="signup-fine">You will get a confirmation email first; nothing is sent until you click it. <a href="/privacy/">Privacy</a>.</p>
 </div>

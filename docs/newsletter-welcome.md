@@ -16,7 +16,7 @@ Four lanes, pick the one that matches your question:
 - Headlines: how to read nutrition research and news. {{site}}/headlines/
 - Flexibility: hunger, fullness, eating without rules. {{site}}/flexibility/
 
-One honest line about me: I am a master's candidate in nutrition and dietetics and a dietetic intern, and I swam at the Olympic level. I am working toward the registered dietitian credential. Nothing here is medical advice, and the site says so everywhere it matters. How we work: {{site}}/standards/
+One honest line about me: I am a master's candidate in nutrition and dietetics and a dietetic intern, and I swam at the Olympic level. I am working toward the registered dietitian credential. Everything here is general education for a wide audience. How we work: {{site}}/standards/
 
 One question, if you feel like replying: what nutrition question do you wish someone would answer properly? Replies go into the article backlog.
 

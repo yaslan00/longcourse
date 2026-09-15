@@ -50,13 +50,12 @@ noindex: true
     <table class="owner-table">
       <tr><th>Snapshot</th><td>{{ ops.stats.generatedAt }}</td></tr>
       <tr><th>Pageviews</th><td>{{ ops.stats.site.pageviews7d if ops.stats.site.pageviews7d is defined else "n/a" }}</td></tr>
-      <tr><th>Newsletter subscribers</th><td>{{ ops.stats.newsletter.subscribers if ops.stats.newsletter.subscribers is defined else "n/a" }}</td></tr>
-      <tr><th>Unconfirmed signups</th><td>{{ ops.stats.newsletter.unconfirmed if ops.stats.newsletter.unconfirmed is defined else "n/a" }}</td></tr>
+      <tr><th>Newsletter subscribers</th><td>counted in the Sunday digest (list lives in Google Drive)</td></tr>
     </table>
     {% if ops.stats.site.topPages %}<p class="list-meta">Top pages: {% for p in ops.stats.site.topPages %}{{ p.path }} ({{ p.count }}){% if not loop.last %}, {% endif %}{% endfor %}</p>{% endif %}
     {% if ops.stats.errors.length %}<p class="list-meta">Stats notes: {{ ops.stats.errors | join("; ") }}</p>{% endif %}
     {% else %}<p class="empty-p">No stats snapshot yet. The weekly job writes one every Sunday evening.</p>{% endif %}
-    <p class="list-meta">Live dashboards: <a href="https://{{ site.analytics.goatcounter }}.goatcounter.com">GoatCounter</a> · <a href="https://buttondown.com/emails">Buttondown</a> · <a href="https://app.netlify.com">Netlify</a> · <a href="{{ ops.repo }}/actions">GitHub Actions (job logs)</a></p>
+    <p class="list-meta">Live dashboards: <a href="https://{{ site.analytics.goatcounter }}.goatcounter.com">GoatCounter</a> · <a href="https://app.netlify.com">Netlify</a> · <a href="{{ ops.repo }}/actions">GitHub Actions (job logs)</a></p>
 
     <h2 class="section-h">System health</h2>
     {% if ops.stats %}
@@ -67,7 +66,7 @@ noindex: true
     <h2 class="section-h">Monthly spend</h2>
     <table class="owner-table">
       <tr><th>Netlify</th><td>$0 (free)</td></tr>
-      <tr><th>Buttondown</th><td>$0 up to 100 subscribers, then paid</td></tr>
+      <tr><th>Newsletter (Gmail + Drive)</th><td>$0</td></tr>
       <tr><th>GoatCounter</th><td>$0 (free for personal use)</td></tr>
       <tr><th>GitHub</th><td>$0 (public repo, free Actions minutes)</td></tr>
       <tr><th>Domain</th><td>not purchased yet</td></tr>

@@ -1,0 +1,27 @@
+---
+layout: base.njk
+title: Confirm your subscription
+description: Confirm your Long Course newsletter subscription.
+permalink: /newsletter/confirm/
+noindex: true
+---
+<article class="page wrap-narrow">
+  <header class="page-head">
+    <p class="kicker">Newsletter</p>
+    <h1 class="page-title">Confirm your subscription</h1>
+    <p class="dek">Click once and you are on the list. This is the double opt-in step.</p>
+  </header>
+  <div class="article-body">
+    <form class="signup-form" name="confirm" method="POST" action="/newsletter/confirmed/" data-netlify="true" netlify-honeypot="website">
+      <input type="hidden" name="form-name" value="confirm">
+      <p class="visually-hidden"><label>Leave this empty: <input name="website" tabindex="-1" autocomplete="off"></label></p>
+      <label class="visually-hidden" for="confirm-email">Email address</label>
+      <input type="email" name="email" id="confirm-email" placeholder="you@example.com" required autocomplete="email" data-prefill="e">
+      <button type="submit">Confirm subscription</button>
+    </form>
+    <p class="signup-fine">Wrong address, or you did not sign up? Just close this page; nothing happens unless you click.</p>
+  </div>
+</article>
+<script>
+(function(){var p=new URLSearchParams(location.search).get("e");var i=document.querySelector("[data-prefill=e]");if(p&&i)i.value=p;})();
+</script>

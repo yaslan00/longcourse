@@ -8,7 +8,7 @@ permalink: /standards/
 
 ## What this site is
 
-Long Course publishes educational writing about nutrition. It is not medical advice, it is not individualized, and it does not replace care from a physician, registered dietitian, or other qualified professional. Reading it does not create any professional relationship.
+Long Course publishes general education about nutrition for a wide audience. It explains what the evidence says so readers can ask better questions; decisions about an individual's health belong with the clinician or dietitian who knows their history.
 
 ## How an article is made
 
@@ -46,6 +46,3 @@ We correct errors quickly and visibly. See the [corrections policy](/corrections
 
 Long Course has no sponsors, sells no supplements or plans, and accepts no payment for coverage. If that ever changes, it will be disclosed on this page and on the affected articles.
 
-## Licensing
-
-Text and original graphics are licensed under Creative Commons BY-NC 4.0 unless noted. Quote us with a link.

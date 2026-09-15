@@ -99,4 +99,4 @@ Hunger is a signal your body produces in response to real conditions like sleep,
 5. Linardon J, Tylka TL, Fuller-Tyszkiewicz M. (2021). Intuitive eating and its psychological correlates: A meta-analysis. *International Journal of Eating Disorders*. https://doi.org/10.1002/eat.23509 (97 studies, 89% cross-sectional.)
 6. Van Dyke N, Drinkwater EJ. (2014). Relationships between intuitive eating and health indicators: literature review. *Public Health Nutrition*. https://doi.org/10.1017/S1368980013002139 (26 studies; mostly cross-sectional, with small, short clinical trials.)
 
-*Educational content, not medical advice. See our [editorial standards](/standards/).*
+*Long Course is written as general education for a wide audience. Decisions about your own health belong with the people who know your history. [How we work](/standards/).*

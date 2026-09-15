@@ -23,7 +23,13 @@ if (gc) {
     const h = await (await fetch(`https://${site.analytics.goatcounter}.goatcounter.com/api/v0/stats/hits?${q}&limit=10`, { headers: { Authorization: `Bearer ${gc}` } })).json();
     out.site.topPages = (h.hits || []).map((x) => ({ path: x.path, count: x.count }));
   } catch (e) { out.errors.push("goatcounter: " + e.message); }
-} else out.errors.push("goatcounter token not set");
+} else {
+  // No token: use the public counter endpoint (requires "public dashboard" in GoatCounter settings).
+  try {
+    const t = await (await fetch(`https://${site.analytics.goatcounter}.goatcounter.com/counter/TOTAL.json`)).json();
+    out.site.pageviewsTotal = t.count ?? t.count_unique ?? null;
+  } catch (e) { out.errors.push("goatcounter public counter: " + e.message); }
+}
 
 // Buttondown (optional key)
 const bd = process.env.BUTTONDOWN_API_KEY;
@@ -34,7 +40,7 @@ if (bd) {
     const u = await (await fetch("https://api.buttondown.com/v1/subscribers?type=unactivated&page_size=1", { headers: { Authorization: `Token ${bd}` } })).json();
     out.newsletter.unconfirmed = u.count ?? null;
   } catch (e) { out.errors.push("buttondown: " + e.message); }
-} else out.errors.push("buttondown key not set");
+} else out.newsletter.note = "subscriber list lives in Google Drive; counted in the Sunday digest";
 
 fs.writeFileSync("ops/stats.json", JSON.stringify(out, null, 2) + "\n");
 console.log(JSON.stringify(out, null, 2));

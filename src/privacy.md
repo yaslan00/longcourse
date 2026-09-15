@@ -16,7 +16,7 @@ Page views are counted with GoatCounter, a privacy focused analytics service tha
 
 ## Newsletter
 
-If you subscribe, your email address is stored by Buttondown, the newsletter service used to send the letter. Subscription is double opt-in: you confirm by email before anything is sent. Every letter includes a one click unsubscribe link, and you can also [unsubscribe here](/newsletter/unsubscribe/). Your address is used only to send this newsletter.
+If you subscribe, your email address is stored in the publication's private Google Drive and the letter is sent from the publication's Gmail account. Subscription is double opt-in: you confirm by email before anything is sent. Every letter includes an unsubscribe link, and you can also [unsubscribe here](/newsletter/unsubscribe/). Your address is used only to send this newsletter and is removed on request.
 
 ## Contact form and email
 
@@ -30,9 +30,9 @@ The site is hosted on Netlify, which keeps standard server logs (such as IP addr
 
 You can ask what data we hold about you, ask for it to be deleted, or unsubscribe at any time by [contacting us](/contact/).
 
-## Educational disclaimer
+## How to read Long Course
 
-Everything on Long Course is general education. It is not medical or nutritional advice, is not tailored to you, and does not replace guidance from a physician, registered dietitian, or other qualified professional who knows your situation. The author is a master's candidate and dietetic intern working toward the registered dietitian credential. If you have a medical condition, take medication, are pregnant or breastfeeding, or have a history of disordered eating, discuss any change in eating with your own care team.
+Everything here is general education for a wide audience: the evidence, explained clearly. It is not written for any one person's situation. If you have a medical condition, take medication, are pregnant or breastfeeding, or have a history of disordered eating, the right place for decisions about eating is your own care team, who know your history.
 
 ## Changes
 

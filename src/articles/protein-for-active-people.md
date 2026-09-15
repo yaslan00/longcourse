@@ -108,4 +108,4 @@ If you train a few times a week, aiming for roughly 1.2 to 1.6 g of protein per 
 
 Note on the 0.8 g/kg figure: this is the general adult Recommended Dietary Allowance used in the United States and Canada, set to meet basic needs in the general population rather than to optimize training outcomes.
 
-*Educational content, not medical advice. See our [editorial standards](/standards/).*
+*Long Course is written as general education for a wide audience. Decisions about your own health belong with the people who know your history. [How we work](/standards/).*

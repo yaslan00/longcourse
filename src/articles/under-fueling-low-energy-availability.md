@@ -93,4 +93,4 @@ Under fueling is real, common enough to have its own international consensus, an
 5. Vanheest JL, Rodgers CD, Mahoney CE, De Souza MJ. (2014). Ovarian suppression impairs sport performance in junior elite female swimmers. *Medicine and Science in Sports and Exercise*. https://doi.org/10.1249/MSS.0b013e3182a32b72 (Observational study, 10 swimmers aged 15 to 17, one 12 week season.)
 6. Melin A, Tornberg ÅB, Skouby S, et al. (2016). Low-energy density and high fiber intake are dietary concerns in female endurance athletes. *Scandinavian Journal of Medicine and Science in Sports*. https://doi.org/10.1111/sms.12516 (Cross-sectional study, 25 female endurance athletes.)
 
-*Educational content, not medical advice. See our [editorial standards](/standards/).*
+*Long Course is written as general education for a wide audience. Decisions about your own health belong with the people who know your history. [How we work](/standards/).*

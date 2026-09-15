@@ -126,4 +126,4 @@ Around 25 to 30 g of fiber a day is where the human evidence is strongest, and m
 6. Eswaran S, Muir J, Chey WD. 2013. Fiber and functional gastrointestinal disorders. *American Journal of Gastroenterology* 108(5):718-727. https://doi.org/10.1038/ajg.2013.63 (The gradual titration advice is described by the authors as practical, not evidence based.)
 7. U.S. Department of Agriculture and U.S. Department of Health and Human Services. 2020. Food Sources of Dietary Fiber, Dietary Guidelines for Americans 2020-2025 online materials (data source: USDA Agricultural Research Service, FoodData Central). https://www.dietaryguidelines.gov/resources/2020-2025-dietary-guidelines-online-materials/food-sources-select-nutrients/food-sources-fiber
 
-*Educational content, not medical advice. See our [editorial standards](/standards/).*
+*Long Course is written as general education for a wide audience. Decisions about your own health belong with the people who know your history. [How we work](/standards/).*

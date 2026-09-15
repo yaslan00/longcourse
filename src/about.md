@@ -16,9 +16,9 @@ It is written for everyday readers who train, move, cook, or simply want a calme
 
 Yiğit Aslan is a master's candidate in nutrition and dietetics and a dietetic intern at Viterbo University in La Crosse, Wisconsin, with an expected graduation in December 2026. He holds a BS in Nutritional Sciences and Dietetics from the University of Wisconsin Madison.
 
-Before that, he swam. He competed at the Olympic level and raced for UW Madison in NCAA Division I. That background shapes the perspective here: years of two-a-day training sessions, travel, and the practical reality of eating enough to do hard things. It does not make him a clinician, and nothing on this site should be read as a substitute for care from your own healthcare team.
+Before that, he swam. He competed at the Olympic level and raced for UW Madison in NCAA Division I. That background shapes the perspective here: years of two-a-day training sessions, travel, and the practical reality of eating enough to do hard things.
 
-**Where he is on the path.** Yiğit is completing the supervised practice and coursework that lead to the registered dietitian (RD) credential, with the exam ahead. This page will be updated as that progresses. His athletic record is a source of perspective, not a source of clinical authority, and everything here is education rather than individual advice.
+**Where he is on the path.** Yiğit is completing the supervised practice and coursework that lead to the registered dietitian (RD) credential, with the exam ahead. This page will be updated as that progresses. Everything here is written as general education for a wide audience: the evidence, explained clearly, so you can bring better questions to the people who know your own history.
 
 ## What you can expect
 
