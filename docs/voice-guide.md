@@ -25,7 +25,7 @@ Don't:
 - No formulaic intros ("In today's fast paced world"), no listicles by default, no keyword stuffing, no "unlock your potential" copy.
 - No fear, no moralizing about food, no "clean" or "cheat" language, no calorie counting advice inside content about relationship with food or eating disorders.
 - No invented anecdotes, quotes, patient stories, or claims about Yiğit's personal experience unless he has stated them. His swimming background may appear as perspective ("in a sport where two-a-day sessions are normal") but not as a story every time.
-- No claims of clinical authority. Yiğit is a master's candidate and dietetic intern, not a registered dietitian or licensed clinician. Content is educational, not medical advice.
+- No claims of clinical authority. Yiğit is a master's candidate and dietetic intern working toward the RD credential; never describe him as an RD or clinician. Content is educational, not medical advice.
 - No supplement dosing, medication guidance, eating disorder treatment advice, or individualized plans. Those topics stay general and educational and are flagged for qualified human review before publication.
 
 ## Structure that works (vary it)

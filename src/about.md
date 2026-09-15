@@ -18,7 +18,7 @@ Yiğit Aslan is a master's candidate in nutrition and dietetics and a dietetic i
 
 Before that, he swam. He competed at the Olympic level and raced for UW Madison in NCAA Division I. That background shapes the perspective here: years of two-a-day training sessions, travel, and the practical reality of eating enough to do hard things. It does not make him a clinician, and nothing on this site should be read as a substitute for care from your own healthcare team.
 
-**Credentials, stated plainly.** Yiğit is not a registered dietitian or a licensed clinician. He is completing the supervised practice and coursework that lead to eligibility for the RDN credential. This page will be updated when that status changes. His athletic record is a source of perspective, not a source of clinical authority.
+**Where he is on the path.** Yiğit is completing the supervised practice and coursework that lead to the registered dietitian (RD) credential, with the exam ahead. This page will be updated as that progresses. His athletic record is a source of perspective, not a source of clinical authority, and everything here is education rather than individual advice.
 
 ## What you can expect
 
@@ -27,7 +27,7 @@ Before that, he swam. He competed at the Olympic level and raced for UW Madison 
 - Uncertainty is stated, not smoothed over.
 - Practical examples are framed as examples, never as individual prescriptions.
 - Articles are re-reviewed against newer evidence on a schedule shown at the bottom of each piece.
-- Research and drafting use AI assistance. Every published article is edited and approved by Yiğit. Details are on the [editorial standards](/standards/) page.
+- How articles are made, checked, and corrected is on the [editorial standards](/standards/) page.
 
 ## Contact
 

@@ -32,7 +32,7 @@ You can ask what data we hold about you, ask for it to be deleted, or unsubscrib
 
 ## Educational disclaimer
 
-Everything on Long Course is general education. It is not medical or nutritional advice, is not tailored to you, and does not replace guidance from a physician, registered dietitian, or other qualified professional who knows your situation. The author is a master's candidate and dietetic intern, not a registered dietitian or licensed clinician. If you have a medical condition, take medication, are pregnant or breastfeeding, or have a history of disordered eating, discuss any change in eating with your own care team.
+Everything on Long Course is general education. It is not medical or nutritional advice, is not tailored to you, and does not replace guidance from a physician, registered dietitian, or other qualified professional who knows your situation. The author is a master's candidate and dietetic intern working toward the registered dietitian credential. If you have a medical condition, take medication, are pregnant or breastfeeding, or have a history of disordered eating, discuss any change in eating with your own care team.
 
 ## Changes
 

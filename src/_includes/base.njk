@@ -14,7 +14,9 @@
   <meta property="og:title" content="{{ title or site.name }}">
   <meta property="og:description" content="{{ pageDesc }}">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-  <meta property="og:image" content="{{ site.url }}/og/{{ page.fileSlug or 'home' }}.png">
+  <meta property="og:image" content="{{ site.url }}/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="/feed.xml">
@@ -37,22 +39,33 @@
 <body class="{{ bodyClass }}">
 <a class="skip" href="#main">Skip to content</a>
 <header class="masthead">
-  <div class="wrap masthead-row">
+  <div class="masthead-top">
+    <div class="wrap masthead-top-row">
+      <span>Madison, Wisconsin · Est. 2026</span>
+      <span class="masthead-top-right"><a href="/newsletter/">Newsletter</a> · <a href="/feed.xml">RSS</a></span>
+    </div>
+  </div>
+  <div class="wrap masthead-brand-row">
     <a class="brand" href="/" aria-label="{{ site.name }} home">
-      <svg class="brand-mark" width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="2" y="2" width="24" height="24" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 18c3-6 6-6 8 0s5 6 8 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="brand-mark" width="34" height="34" viewBox="0 0 28 28" aria-hidden="true"><rect x="2" y="2" width="24" height="24" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 18c3-6 6-6 8 0s5 6 8 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       <span class="brand-name">{{ site.name }}</span>
     </a>
+    <p class="brand-tag">{{ site.tagline }}</p>
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav" data-nav-toggle>Menu</button>
-    <nav id="nav" class="nav" aria-label="Primary">
-      <a href="/fuel/">Fuel</a>
-      <a href="/everyday/">Everyday</a>
-      <a href="/headlines/">Headlines</a>
-      <a href="/flexibility/">Flexibility</a>
+  </div>
+  <nav id="nav" class="nav" aria-label="Primary">
+    <div class="wrap nav-row">
+      <a href="/fuel/" class="nav-lane lane-fuel">Fuel</a>
+      <a href="/everyday/" class="nav-lane lane-everyday">Everyday</a>
+      <a href="/headlines/" class="nav-lane lane-headlines">Headlines</a>
+      <a href="/flexibility/" class="nav-lane lane-flexibility">Flexibility</a>
+      <span class="nav-gap" aria-hidden="true"></span>
       <a href="/archive/">Archive</a>
       <a href="/about/">About</a>
-      <a class="nav-cta" href="/newsletter/">Newsletter</a>
-    </nav>
-  </div>
+      <a href="/portfolio/">Portfolio</a>
+      <a href="/contact/">Contact</a>
+    </div>
+  </nav>
 </header>
 <main id="main" class="{{ mainClass }}">
 {{ content | safe }}
@@ -60,9 +73,9 @@
 <footer class="colophon">
   <div class="wrap colophon-grid">
     <div>
-      <p class="colophon-name">{{ site.name }}</p>
+      <p class="colophon-name"><svg width="22" height="22" viewBox="0 0 28 28" aria-hidden="true"><rect x="2" y="2" width="24" height="24" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 18c3-6 6-6 8 0s5 6 8 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> {{ site.name }}</p>
       <p class="colophon-tag">{{ site.tagline }}</p>
-      <p class="colophon-small">Written by {{ site.author.name }}. Educational content only, not medical advice. Founded {{ site.founded }} in Madison, Wisconsin.</p>
+      <p class="colophon-small">Written by {{ site.author.name }}. Educational content only, not medical advice. Madison, Wisconsin, since {{ site.founded }}.</p>
     </div>
     <nav aria-label="Footer">
       <a href="/about/">About</a>
@@ -71,11 +84,12 @@
       <a href="/corrections/">Corrections</a>
       <a href="/contact/">Contact</a>
       <a href="/privacy/">Privacy</a>
+      <a href="/newsletter/">Newsletter</a>
       <a href="/feed.xml">RSS</a>
     </nav>
     <div>
-      <p class="colophon-small">Every article lists its sources. Articles are reviewed for accuracy at least once after publication; the review date appears on the page.</p>
-      <p class="colophon-small">Built with Eleventy. Text and original graphics licensed CC BY-NC 4.0 unless noted.</p>
+      <p class="colophon-small">Every article lists its sources and separates evidence from interpretation. Articles are re-reviewed against newer evidence on a schedule; the review date appears on each page.</p>
+      <p class="colophon-small">Text and original graphics licensed CC BY-NC 4.0 unless noted. Built with Eleventy, hosted on Netlify.</p>
     </div>
   </div>
 </footer>

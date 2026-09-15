@@ -5,16 +5,24 @@ permalink: /
 ---
 {% set lead = collections.articles[0] %}
 {% set rest = collections.articles.slice(1, 5) %}
-<section class="wrap home-intro">
-  <p class="home-statement"><em>Long Course</em> is an independent nutrition publication. It takes the long view: what the evidence actually shows, what it doesn't, and what that could look like on a normal Tuesday.</p>
+{% set upcoming = collections.drafts | head(4) %}
+
+<section class="wrap hero">
+  <div class="hero-text">
+    <p class="kicker kicker-ink">An independent nutrition publication</p>
+    <p class="home-statement"><em>Long Course</em> takes the long view: what the evidence actually shows, what it doesn't, and what that could look like on a normal Tuesday.</p>
+    <p class="hero-sub">Written by {{ site.author.name }}, master's candidate and dietetic intern working toward the RD credential, and an Olympic swimmer. Every article names its sources and says where the evidence is thin.</p>
+    <p class="hero-links"><a class="button" href="/archive/">Read the archive</a> <a class="hero-link" href="/about/">About the author</a></p>
+  </div>
+  <div class="hero-figure">{% include "lanes-art.njk" %}</div>
 </section>
 
 {% if lead %}
 <section class="wrap lead" aria-labelledby="lead-h">
   <h2 id="lead-h" class="visually-hidden">Lead story</h2>
   <div class="lead-grid">
-    <div class="lead-main">
-      <p class="kicker"><a href="/{{ lead.data.lane }}/">{{ lead.data.lane | laneName }}</a></p>
+    <div class="lead-main lane-{{ lead.data.lane }}">
+      <p class="kicker"><a href="/{{ lead.data.lane }}/">{{ lead.data.lane | laneName }}</a> <span class="kicker-mute">Latest</span></p>
       <h3 class="lead-title"><a href="{{ lead.url }}">{{ lead.data.title }}</a></h3>
       <p class="lead-dek">{{ lead.data.dek }}</p>
       <p class="list-meta">{{ lead.date | readableDate }} · {{ lead.data.readingTime }} min read · {{ lead.data.sources }} sources</p>
@@ -23,7 +31,7 @@ permalink: /
       <p class="side-label">Recent</p>
       <ol class="side-list">
         {% for item in rest %}
-        <li><a href="{{ item.url }}"><span class="kicker-small">{{ item.data.lane | laneName }}</span><span class="side-title">{{ item.data.title }}</span></a></li>
+        <li class="lane-{{ item.data.lane }}"><a href="{{ item.url }}"><span class="kicker-small">{{ item.data.lane | laneName }}</span><span class="side-title">{{ item.data.title }}</span></a></li>
         {% endfor %}
       </ol>
       <p class="side-more"><a href="/archive/">Everything, searchable</a></p>
@@ -31,27 +39,40 @@ permalink: /
   </div>
 </section>
 {% else %}
-<section class="wrap empty">
-  <p class="empty-p">The first articles are being edited. Subscribe below and you will get the first one when it lands.</p>
+<section class="wrap lead" aria-labelledby="sched-h">
+  <div class="lead-grid">
+    <div class="lead-main">
+      <p class="kicker kicker-ink">Launching</p>
+      <h2 id="sched-h" class="lead-title">The first issue lands Tuesday {{ upcoming[0].date | readableDate if upcoming.length else "soon" }}.</h2>
+      <p class="lead-dek">One substantial article a week, every Tuesday morning. Subscribe once and the letter brings each one to you; unsubscribing takes one click.</p>
+      {% include "signup.njk" %}
+    </div>
+    <div class="lead-side">
+      <p class="side-label">Publishing schedule</p>
+      <ol class="side-list">
+        {% for item in upcoming %}
+        <li class="lane-{{ item.data.lane }}"><span class="kicker-small">{{ item.data.lane | laneName }} · {{ item.date | readableDate }}</span><span class="side-title">{{ item.data.title }}</span></li>
+        {% endfor %}
+      </ol>
+    </div>
+  </div>
 </section>
 {% endif %}
 
 <section class="wrap paths" aria-labelledby="paths-h">
-  <h2 id="paths-h" class="section-h">Reading paths</h2>
-  <p class="section-p">Four lanes. Pick the one that matches the question you actually have.</p>
+  <div class="section-head">
+    <h2 id="paths-h" class="section-h">Four lanes</h2>
+    <p class="section-p">Pick the one that matches the question you actually have.</p>
+  </div>
   <div class="paths-grid">
     {% for key, lane in lanes %}
-    <div class="path lane-{{ key }}">
-      <h3 class="path-h"><a href="/{{ key }}/">{{ lane.name }}</a></h3>
-      <p class="path-p">{{ lane.blurb }}</p>
-      <ul class="path-list">
-        {% for item in collections.articles | byLane(key) | head(3) %}
-        <li><a href="{{ item.url }}">{{ item.data.title }}</a></li>
-        {% else %}
-        <li class="path-empty">First piece coming soon.</li>
-        {% endfor %}
-      </ul>
-    </div>
+    <a class="path lane-{{ key }}" href="/{{ key }}/">
+      <span class="path-num">0{{ loop.index }}</span>
+      {% include "lane-icon.njk" %}
+      <span class="path-h">{{ lane.name }}</span>
+      <span class="path-p">{{ lane.blurb }}</span>
+      <span class="path-count">{{ (collections.articles | byLane(key)).length }} published</span>
+    </a>
     {% endfor %}
   </div>
 </section>
@@ -61,15 +82,24 @@ permalink: /
     <div>
       <h2 id="how-h" class="section-h">How this publication works</h2>
       <p>Every article starts with a real reader question, cites the studies it leans on, and says out loud where the evidence is thin. Human trials come first. Animal and lab findings are labelled as such. Practical examples are examples, not prescriptions.</p>
-      <p>Articles are re-checked against newer evidence on a schedule, and the review date sits at the bottom of every piece. Read the <a href="/standards/">editorial standards</a>, including how AI assistance is used and disclosed.</p>
+      <p>Articles are re-checked against newer evidence on a schedule, and the review date sits at the bottom of every piece. Read the <a href="/standards/">editorial standards</a>.</p>
+      <ul class="how-list">
+        <li><strong>Evidence, interpretation, practice.</strong> Kept apart, on purpose, in every piece.</li>
+        <li><strong>No supplements to sell.</strong> No sponsors, no plans, no affiliate links.</li>
+        <li><strong>Two lanes that never mix.</strong> Fueling content and relationship-with-food content are kept separate.</li>
+      </ul>
     </div>
     <div class="how-author">
       <p class="side-label">The author</p>
-      <p>{{ site.author.name }} is a master's candidate and dietetic intern at Viterbo University with a BS in Nutritional Sciences and Dietetics from UW Madison. He competed in swimming at the Olympic level and raced for UW Madison in NCAA Division I. He is not a registered dietitian yet, and this site is not medical advice. <a href="/about/">More about him</a>.</p>
+      <p class="how-author-name">{{ site.author.name }}</p>
+      <p>Master's candidate and dietetic intern at Viterbo University with a BS in Nutritional Sciences and Dietetics from UW Madison. He competed in swimming at the Olympic level and raced for UW Madison in NCAA Division I. He is working toward the registered dietitian credential; the site is education, not individual advice.</p>
+      <p><a href="/about/">More about him</a> · <a href="/portfolio/">Portfolio</a></p>
     </div>
   </div>
 </section>
 
+{% if lead %}
 <section class="wrap-narrow">
   {% include "signup.njk" %}
 </section>
+{% endif %}

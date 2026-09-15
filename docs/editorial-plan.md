@@ -52,7 +52,7 @@ Fuel gets roughly 40 percent of slots (core audience), Everyday 25, Headlines 20
 
 ## Newsletter welcome sequence (three emails)
 
-1. **Immediately after confirmation: "What Long Course is."** One paragraph on the premise, the four lanes with one link each, the standards page, and a plain line about credentials (master's candidate and dietetic intern, not an RD). Ask one reply question: "What nutrition question do you wish someone would answer properly?" Replies feed the backlog.
+1. **Immediately after confirmation: "What Long Course is."** One paragraph on the premise, the four lanes with one link each, the standards page, and a plain line about credentials (master's candidate and dietetic intern working toward the RD credential). Ask one reply question: "What nutrition question do you wish someone would answer properly?" Replies feed the backlog.
 2. **Day 3: "How to read us."** Explains the evidence, interpretation, practice separation and the accuracy review dates. Links the Headlines lane. No pitch.
 3. **Day 7: "Start here."** Two or three articles matched to the reader's stated interest if they replied, otherwise the two most read pieces. Reminder that unsubscribing is one click.
 

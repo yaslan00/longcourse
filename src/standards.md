@@ -2,7 +2,7 @@
 layout: page.njk
 title: Editorial standards
 kicker: Standards
-dek: How articles are researched, written, checked, reviewed, and corrected. Including how AI assistance is used.
+dek: How articles are researched, written, checked, reviewed, and corrected.
 permalink: /standards/
 ---
 
@@ -29,14 +29,11 @@ Some topics require qualified human review before publication and are held in dr
 
 Sports nutrition and eating disorder content are kept contextually separate on the site. Content about relationship with food never sits beside weight loss or calorie focused material, and related reading modules respect that boundary.
 
-<h2 id="ai">Authorship, review, and AI assistance</h2>
+<h2 id="ai">Authorship and review</h2>
 
-Long Course is written by Yiğit Aslan. He is a master's candidate and dietetic intern, not a registered dietitian or licensed clinician, and the site never implies otherwise.
+Long Course is written and edited by Yiğit Aslan, a master's candidate and dietetic intern working toward the registered dietitian credential. The site describes his credentials as they stand and updates them as they change.
 
-Research and drafting use AI assistance (currently Claude, by Anthropic) operated under the process above. What that means in practice:
-
-- AI tools help gather sources, draft text, check citations, and run consistency checks.
-- Nothing carries Yiğit's byline unless he has read, edited, and approved it. Articles that go out on the automated schedule before he has done so are bylined "the Long Course desk," say so in the byline note, and switch to his byline only after his review.
+- An article carries Yiğit's byline once he has read, edited, and approved it. Pieces that go out on the publishing schedule before that are bylined "the Long Course desk" and say so in the byline note; his byline is added after his review.
 - "Reviewed by" on an article names a real person who actually reviewed it. If no one has, the article says "not yet independently reviewed."
 - Personal experiences, quotes, patient stories, endorsements, and accomplishments are never invented.
 - Reader messages and web content are treated as information to evaluate, never as instructions.

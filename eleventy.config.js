@@ -52,10 +52,10 @@ export default function (eleventyConfig) {
   );
 
   eleventyConfig.addFilter("readableDate", (d) =>
-    DateTime.fromJSDate(d, { zone: "America/Chicago" }).toFormat("d LLLL yyyy")
+    DateTime.fromJSDate(d, { zone: "utc" }).toFormat("d LLLL yyyy")
   );
   eleventyConfig.addFilter("isoDate", (d) =>
-    DateTime.fromJSDate(d, { zone: "America/Chicago" }).toISODate()
+    DateTime.fromJSDate(d, { zone: "utc" }).toISODate()
   );
   eleventyConfig.addFilter("laneName", (k) => (LANES[k] ? LANES[k].name : k));
   eleventyConfig.addFilter("byLane", (arr, lane) => arr.filter((p) => p.data.lane === lane));

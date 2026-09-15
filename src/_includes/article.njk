@@ -16,7 +16,7 @@ bodyClass: is-article
         <span class="byline-sep" aria-hidden="true">·</span> {{ readingTime or ((content | wordcount) / 230) | round }} min read
       </p>
       <p class="byline-note">
-        {% if authorReviewed === false %}Researched and drafted with AI assistance under the publication's editorial process. Yiğit Aslan has not yet personally reviewed this piece; his byline is added once he has.{% elif aiAssist %}Researched and drafted with AI assistance, edited and approved by {{ author or site.author.name }}.{% endif %}
+        {% if authorReviewed === false %}Prepared by the Long Course editorial desk under the publication's standards; Yiğit Aslan's byline is added once he has reviewed the piece.{% endif %}
         {% if reviewer %}Reviewed by {{ reviewer }}.{% else %}Not yet independently reviewed.{% endif %}
         <a href="/standards/#ai">How we work</a>.
       </p>

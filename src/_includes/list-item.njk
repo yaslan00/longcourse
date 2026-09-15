@@ -1,8 +1,6 @@
-<li class="list-item">
+<li class="list-item lane-{{ item.data.lane }}">
   <a href="{{ item.url }}" class="list-link">
-    <span class="kicker-small">{{ item.data.lane | laneName }}</span>
-    <span class="list-title">{{ item.data.title }}</span>
-    <span class="list-dek">{{ item.data.dek }}</span>
-    <span class="list-meta"><time datetime="{{ item.date | isoDate }}">{{ item.date | readableDate }}</time> · {{ item.data.readingTime }} min</span>
+    <span class="list-side"><span class="kicker-small">{{ item.data.lane | laneName }}</span><time class="list-date" datetime="{{ item.date | isoDate }}">{{ item.date | readableDate }}</time><span class="list-read">{{ item.data.readingTime }} min · {{ item.data.sources }} sources</span></span>
+    <span class="list-main"><span class="list-title">{{ item.data.title }}</span><span class="list-dek">{{ item.data.dek }}</span></span>
   </a>
 </li>
